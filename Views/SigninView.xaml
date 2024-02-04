@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClickingGame.Views.SigninView"
+             Title="SigninView">
+    <VerticalStackLayout Padding="25" HorizontalOptions="Center" MaximumWidthRequest="1000">
+        <Label 
+            Text="Welcome to signin page! Please sign in to use application fully"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <VerticalStackLayout Grid.Column="1">
+                <Label Text="Enter name" Margin="0,5,0,5" />
+                <Entry Text="{Binding EntryName}" Style="{StaticResource LoginStyle}" IsEnabled="{Binding Logged}" />
+                <Label Text="Enter password" Margin="0,5,0,5" />
+                <Entry Text="{Binding EntryPassword}" Style="{StaticResource LoginStyle}" IsEnabled="{Binding Logged}" IsPassword="True" />
+                <Button Text="{Binding LoggingButtonText}" BackgroundColor="{Binding LoginButtonBackColor}" Command="{Binding SigninUserCommand}" IsEnabled="{Binding Logged}" />
+                <Button Text="Return" Command="{Binding ReturnCommand}" />
+            </VerticalStackLayout>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

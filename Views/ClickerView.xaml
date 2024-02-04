@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClickingGame.Views.ClickerView"
+             Title="Clicker">
+    <VerticalStackLayout>
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
+            <Label Text="{Binding BoostText}" FontSize="Medium" BackgroundColor="Azure" />
+            <Button IsEnabled="{Binding BoostNotActive}" ImageSource="boost.png" BackgroundColor="{Binding HasBoostButton}" Command="{Binding ActivateBoostCommand}" Text="Active boost" CornerRadius="10" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Label 
+                Text="{Binding Clicks, StringFormat='clicks: {0}'}"
+                BackgroundColor="Azure"
+                FontSize="Medium"/>
+            <Label 
+                Text="{Binding Coins, StringFormat='Coins: {0}'}"
+                BackgroundColor="Azure"
+                FontSize="Medium"/>
+            <Label 
+                Text="{Binding Premium_coins, StringFormat='Premium coins: {0}'}"
+                BackgroundColor="Azure"
+                FontSize="Medium"/>
+        </HorizontalStackLayout>
+        <Grid RowDefinitions="2*,6*,2*" ColumnDefinitions="2*,6*,2*" Padding="5">
+            <Image Source="smile.png" VerticalOptions="Center"  IsVisible="{Binding Smile}" Grid.Row="1" Grid.Column="0" />
+            <Button ImageSource="click.png" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="20" BackgroundColor="{Binding ButtonBackground}" MaximumHeightRequest="400" MinimumHeightRequest="0" Command="{Binding ClickerClickedCommand}" TextColor="Black" />
+            <Image Source="smile.png" VerticalOptions="Center"  IsVisible="{Binding Smile}" Grid.Row="1" Grid.Column="2" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

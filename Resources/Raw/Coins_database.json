@@ -1,0 +1,26 @@
+[
+  {
+    "Name": "+100 Coins",
+    "Description": "adds +100 to you coins inventory",
+    "Factor": 10,
+    "Price": 10
+  },
+  {
+    "Name": "+200 Coins",
+    "Description": "adds +200 to you coins inventory",
+    "Factor": 200,
+    "Price": 20
+  },
+  {
+    "Name": "+500 Coins",
+    "Description": "adds +500 to you coins inventory",
+    "Factor": 500,
+    "Price": 50
+  },
+  {
+    "Name": "+1000 Coins",
+    "Description": "adds +1000 to you coins inventory",
+    "Factor": 1000,
+    "Price": 100
+  }
+]

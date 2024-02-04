@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClickingGame.Views.ProfileView"
+             Title="Profile">
+        <VerticalStackLayout Padding="20,20,20,0">
+        <Grid ColumnDefinitions="5,*,*,5" ColumnSpacing="10" IsVisible="{Binding LoginInNeeded}">
+            <Frame Grid.Column="1">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LogInCommand}" />
+                </Frame.GestureRecognizers>
+                <HorizontalStackLayout Margin="0,5,0,0">
+                    <CheckBox IsChecked="{Binding IsLoggedIn}" IsEnabled="False" />
+                    <Label
+                    Margin="2,0,0,0"
+                    Text="Please log in"
+                    VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame Grid.Column="2">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignInCommand}" />
+                </Frame.GestureRecognizers>
+                <HorizontalStackLayout Margin="0,5,0,0">
+                    <Label
+                    Margin="2,0,0,0"
+                    Text="Sign in"
+                    VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Frame>
+        </Grid>
+        <Grid ColumnDefinitions="5*,5*" RowDefinitions="*,*,*,auto" Padding="10" ColumnSpacing="10" IsVisible="{Binding IsLoggedIn}" >
+                <BoxView Color="{OnPlatform Android='LightGreen', WinUI='LightBlue', iOS='LightGray', Default='LightCyan'}" Style="{StaticResource DetailViewBox}" />
+                <Label 
+                Text="{Binding Name}"
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                FontSize="Medium"
+                />
+                <Label 
+                Text="{Binding ActiveBoost.IsActive, StringFormat='Boost active: {0}'}"
+                Grid.Row="1"
+                Grid.Column="0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                FontSize="Medium"
+                Margin="5"
+                />
+                <BoxView Color="LightYellow" Grid.Column="1" Style="{StaticResource DetailViewBox}" />
+                <Label 
+                Text="{Binding Coins, StringFormat='Coins: {0}'}"
+                Grid.Row="0"
+                Grid.Column="1"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                FontSize="Medium"
+                Padding="10,0,0,0"
+                />
+                <Label 
+                Text="{Binding Premium_coins, StringFormat='Premium coins: {0} euro'}"
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                FontSize="Medium"
+                Padding="10,0,0,0"
+                />
+                <Label 
+                Text="{Binding Clicks, StringFormat='clicks: {0} euro'}"
+                Grid.Row="2"
+                Grid.Column="1"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                FontSize="Medium"
+                Padding="10,0,0,0"
+                />
+            </Grid>
+
+        </VerticalStackLayout>
+</ContentPage>

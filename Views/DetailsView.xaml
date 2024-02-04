@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClickingGame.Views.DetailsView"
+             Title="DetailsView">
+    <VerticalStackLayout Padding="20,20,20,0">
+        <Grid ColumnDefinitions="5*,5*" RowDefinitions="*,*,*,auto" Padding="10" ColumnSpacing="10" >
+            <BoxView Color="{OnPlatform Android='LightGreen', WinUI='LightBlue', iOS='LightGray', Default='LightCyan'}" Style="{StaticResource DetailViewBox}" />
+            <Label 
+                Text="{Binding Boost.Name}"
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                FontSize="Medium"
+                />
+            <Label 
+                Text="{Binding Boost.Description}"
+                Grid.Row="1"
+                Grid.Column="0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                FontSize="Medium"
+                Margin="5"
+                />
+            <BoxView Color="LightYellow" Grid.Column="1" Style="{StaticResource DetailViewBox}" />
+            <Label 
+                Text="{Binding Boost.IsActive, StringFormat='running: {0}'}"
+                Grid.Row="0"
+                Grid.Column="1"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                FontSize="Medium"
+                Padding="10,0,0,0"
+                />
+            <Label 
+                Text="{Binding Boost.Factor, StringFormat='factor: {0} euro'}"
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                FontSize="Medium"
+                Padding="10,0,0,0"
+                />
+            <Label 
+                Text="{Binding Boost.Price, StringFormat='costed: {0} euro'}"
+                Grid.Row="2"
+                Grid.Column="1"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                FontSize="Medium"
+                Padding="10,0,0,0"
+                />
+        </Grid>
+        <Button Text="Return" Command="{Binding ReturnCommand}" />
+    </VerticalStackLayout>
+</ContentPage>

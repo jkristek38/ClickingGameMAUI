@@ -1,0 +1,26 @@
+[
+  {
+    "Name": "+100 Premium",
+    "Description": "adds +100 to you  premium coins inventory",
+    "Factor": 100,
+    "Price": 50
+  },
+  {
+    "Name": "+200 Premium",
+    "Description": "adds +200 to you  premium coins inventory",
+    "Factor": 200,
+    "Price": 100
+  },
+  {
+    "Name": "+500 Premium",
+    "Description": "adds +500 to you  premium coins inventory",
+    "Factor": 500,
+    "Price": 150
+  },
+  {
+    "Name": "+1000 Premium",
+    "Description": "adds +1000 to you  premium coins inventory",
+    "Factor": 1000,
+    "Price": 200
+  }
+]

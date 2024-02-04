@@ -1,0 +1,37 @@
+[
+  {
+    "Name": "Boost +1",
+    "Description": "this boost adds +1 to every coin and premium coin income",
+    "Factor": 1,
+    "Price": 100,
+    "Time": 60
+  },
+  {
+    "Name": "Boost +2",
+    "Description": "this boost adds +2 to every coin and premium coin income",
+    "Factor": 2,
+    "Price": 200,
+    "Time": 80
+  },
+  {
+    "Name": "Boost +4",
+    "Description": "this boost adds +4 to every coin and premium coin income",
+    "Factor": 4,
+    "Price": 400,
+    "Time": 100
+  },
+  {
+    "Name": "boost +10",
+    "Description": "this boost adds +10 to every coin and premium coin income",
+    "Factor": 10,
+    "Price": 700,
+    "Time": 120
+  },
+  {
+    "Name": "boost +20",
+    "Description": "this boost adds +20 to every coin and premium coin income",
+    "Type": 20,
+    "Price": 1000,
+    "Time": 240
+  }
+]

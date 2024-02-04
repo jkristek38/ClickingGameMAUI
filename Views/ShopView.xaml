@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClickingGame.Views.ShopView"
+             Title="Shop">
+    <ScrollView>
+    <VerticalStackLayout>
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
+            <Label Text="{Binding BoostText}" FontSize="Medium" BackgroundColor="Azure" />
+                <Button IsEnabled="{Binding BoostNotActive}" ImageSource="boost.png" BackgroundColor="{Binding HasBoostButton}" Command="{Binding ActivateBoostCommand}" Text="Active boost" CornerRadius="10" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Label 
+                Text="{Binding Coins, StringFormat='Coins: {0}'}"
+                BackgroundColor="Azure"
+                FontSize="Medium"/>
+            <Label 
+                Text="{Binding Premium_coins, StringFormat='Premium coins: {0}'}"
+                BackgroundColor="Azure"
+                FontSize="Medium"/>
+        </HorizontalStackLayout>
+        <Grid ColumnDefinitions="2*,6*,2*" RowDefinitions="*,*,*" Padding="5">
+                <Button Command="{Binding GoToCartCommand} " Text="Go to Cart" Grid.Column="0" Grid.Row="0" />
+                <CollectionView Margin="0,25,0,0" ItemsSource="{Binding Boosts}"  Grid.Column="1" Grid.Row="0">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Desktop='3', Phone='2',Default='2'}" HorizontalItemSpacing="10" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <Label HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" Text="No boost in shop!" />
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                            Margin="0,0,0,5"
+                            Stroke="Gainsboro"
+                            StrokeThickness="1">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding DetailsCommand}" />
+                                </Border.GestureRecognizers>
+                                <VerticalStackLayout Padding="5">
+                                    <Label FontSize="24" Text="{Binding Name}" />
+                                    <Label FontSize="12" Text="{Binding Description}" />
+                                    <Label
+                                            Margin="0,5,0,0"
+                                            FontAttributes="Bold"
+                                            FontSize="14"
+                                            Text="{Binding Price, StringFormat='{0} euro'}" />
+                                    <Button
+                                        Margin="10,0,0,0"
+                                        Command="{Binding AddBoostToCartCommand}"
+                                        FontAttributes="Bold"
+                                        Text="Add to Cart" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <CollectionView Margin="0,25,0,0" ItemsSource="{Binding NormalCoins}"  Grid.Column="1" Grid.Row="1">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Desktop='3', Phone='2',Default='2'}" HorizontalItemSpacing="10" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.EmptyView>
+                            <Label HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" Text="No Coins in shop!" />
+                        </CollectionView.EmptyView>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                            Margin="0,0,0,5"
+                            Stroke="Gainsboro"
+                            StrokeThickness="1">
+                                    <!--<Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding DetailsCommand}" />
+                            </Border.GestureRecognizers>-->
+                                    <VerticalStackLayout Padding="5">
+                                        <Label FontSize="24" Text="{Binding Name}" />
+                                        <Label FontSize="12" Text="{Binding Description}" />
+                                        <Label
+                                            Margin="0,5,0,0"
+                                            FontAttributes="Bold"
+                                            FontSize="14"
+                                            Text="{Binding Price, StringFormat='{0} euro'}" />
+                                        <Button
+                                        Margin="10,0,0,0"
+                                        Command="{Binding AddCoinToCartCommand}"
+                                        FontAttributes="Bold"
+                                        Text="Add to Cart" />
+                                    </VerticalStackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <CollectionView Margin="0,25,0,0" ItemsSource="{Binding PCoins}"  Grid.Column="1" Grid.Row="2">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Desktop='3', Phone='2',Default='2'}" HorizontalItemSpacing="10" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.EmptyView>
+                            <Label HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" Text="No Premium Coins in shop!" />
+                        </CollectionView.EmptyView>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                            Margin="0,0,0,5"
+                            Stroke="Gainsboro"
+                            StrokeThickness="1">
+                                    <!--<Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding DetailsCommand}" />
+                            </Border.GestureRecognizers>-->
+                                    <VerticalStackLayout Padding="5">
+                                        <Label FontSize="24" Text="{Binding Name}" />
+                                        <Label FontSize="12" Text="{Binding Description}" />
+                                        <Label
+                                            Margin="0,5,0,0"
+                                            FontAttributes="Bold"
+                                            FontSize="14"
+                                            Text="{Binding Price, StringFormat='{0} euro'}" />
+                                        <Button
+                                        Margin="10,0,0,0"
+                                        Command="{Binding AddPCoinToCartCommand}"
+                                        FontAttributes="Bold"
+                                        Text="Add to Cart" />
+                                    </VerticalStackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+
+
+
+                </Grid>
+                <!--<ActivityIndicator IsVisible="{Binding LoadingIsBusy}" IsRunning="{Binding LoadingIsBusy}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  />-->
+
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
